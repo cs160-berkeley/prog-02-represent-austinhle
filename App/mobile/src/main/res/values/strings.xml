@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Represent</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">Welcome to Represent!</string>
+    <string name="use_zip_code">Show me who\'s representing me!</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="use_current_location">Use my current location</string>
+    <string name="rep">Representative</string>
+    <string name="sen">Senator</string>
+    <string name="democrat">Democrat</string>
+    <string name="republican">Republican</string>
+    <string name="committees">Committees</string>
+    <string name="recent_bills">Recent Bills</string>
+
+    <string name="term">Term ends on 2/1/2016</string>
+
+    <string name="name1">Barbara Boxer</string>
+    <string name="email1">www.boxer.senate.gov</string>
+    <string name="website1">senator@boxer.senate.gov</string>
+
+    <string name="name2">Dianne Feinstein</string>
+    <string name="email2">www.feinstein.senate.gov</string>
+    <string name="website2">senator@feinstein.senate.gov</string>
+
+    <string name="name3">Doug Lamalfa</string>
+    <string name="email3">lamalfa.house.gov</string>
+    <string name="website3">rep@lamalfa.house.gov</string>
+
+    <string name="tweet1">"@SenatorBoxer Putting the country first means Obama nominating aJustice and the Senate doing its..."</string>
+    <string name="tweet2">"@SenFeinstein I\'ll be on @NewsHour tonight to discuss the Supreme Court vacancy. Look up your..."</string>
+    <string name="tweet3">"@RepLamalfa House Obamacare Repeal Bill saves half a trillion dollars. I\'ll help pass it this week."</string>
+    <string name="tweet4">"@RepBarbaraLee Can\'t think of a better way to kick off #WomensHistoryMonth than with champions..."</string>
+</resources>
