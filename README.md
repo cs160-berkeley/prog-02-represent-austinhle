@@ -1,6 +1,6 @@
 # PROG 02: Represent!
 
-Briefly describe your app here.
+This application allows users to view the senators and representatives for a specific zip code or location, or uses their current location to show them who is representing them in the government. It also provides a quick view from the watch that allows users to view additional details (such as end of term date, committees they are on, and recent bills they have sponsored) if they wish to. In addition, the watch also supports a view that shows the results of the 2012 presidential vote for the associated county.
 
 ## Authors
 
@@ -8,7 +8,7 @@ Austin Le ([austinhle@berkeley.edu](mailto:austinhle@berkeley.edu))
 
 ## Demo Video
 
-See [your demo video title here] (https://link_to_your_video)
+See [CS 160 Spring 2016 PROG02B] (https://youtu.be/M3bjijGjYXw)
 
 ## Screenshots
 
@@ -20,5 +20,5 @@ See [your demo video title here] (https://link_to_your_video)
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Any other support
+* [Example code](stackoverflow.com/questions/2317428/android-i-want-to-shake-it) from StackOverflow to detect acceleration changes using sensor on watch
+* Skeleton code provided by CS160 staff for communication and message-passing between phone and watch as well as advice to use 2D picker for watch screens
