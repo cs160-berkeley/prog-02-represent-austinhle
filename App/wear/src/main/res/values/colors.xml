@@ -5,9 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="democrat">#0071bc</color>
     <color name="republican">#e31c3d</color>
+    <color name="independent">#9C27B0</color>
     <color name="black">#212121</color>
     <color name="white">#f2f2f2</color>
     <color name="gray">#e0e0e0</color>
     <color name="dem_button">#205493</color>
     <color name="rep_button">#981b1e</color>
+    <color name="ind_button">#7B1FA2</color>
 </resources>

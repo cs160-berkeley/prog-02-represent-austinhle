@@ -8,7 +8,7 @@ Austin Le ([austinhle@berkeley.edu](mailto:austinhle@berkeley.edu))
 
 ## Demo Video
 
-See [CS 160 Spring 2016 PROG02B] (https://youtu.be/M3bjijGjYXw)
+See [CS 160 Spring 2016 PROG02C] (https://youtu.be/c76dcOYE4Ck)
 
 ## Screenshots
 
@@ -22,3 +22,4 @@ See [CS 160 Spring 2016 PROG02B] (https://youtu.be/M3bjijGjYXw)
 
 * [Example code](stackoverflow.com/questions/2317428/android-i-want-to-shake-it) from StackOverflow to detect acceleration changes using sensor on watch
 * Skeleton code provided by CS160 staff for communication and message-passing between phone and watch as well as advice to use 2D picker for watch screens
+* [Example code](http://stackoverflow.com/questions/2471935/how-to-load-an-imageview-by-url-in-android) from StackOverflow on how to load images into an Android ImageView given a URL.

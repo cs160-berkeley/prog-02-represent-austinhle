@@ -56,10 +56,10 @@ public class WatchToPhoneService extends Service {
                 @Override
                 public void run() {
                     mApiClient.connect();
-                    sendMessage("/" + name, name);
+                    sendMessage("", name);
                 }
             }).start();
-        } else if (randomZipcode != null && randomZipcode.equals("True")) {
+        } else if (randomZipcode != null && randomZipcode.equalsIgnoreCase("True")) {
             Log.d("T", "Retrieved shake signal, sending to phone\n");
 
             new Thread(new Runnable() {

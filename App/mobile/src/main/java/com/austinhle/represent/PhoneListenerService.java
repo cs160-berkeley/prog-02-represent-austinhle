@@ -17,6 +17,7 @@ import java.nio.charset.StandardCharsets;
 public class PhoneListenerService extends WearableListenerService {
     //   WearableListenerServices don't need an iBinder or an onStartCommand: they just need an onMessageReceieved.
     public static final String NAME = "com.austinhle.represent.NAME";
+    public static final String RANDOM_ZIPCODE = "com.austinhle.represent.RANDOM_ZIPCODE";
     public static final String SHAKE_PATH = "/shake";
 
     @Override
@@ -27,7 +28,7 @@ public class PhoneListenerService extends WearableListenerService {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
             Intent intent = new Intent(this, CongressionalActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(CongressionalActivity.RANDOM_ZIPCODE, value);
+            intent.putExtra(RANDOM_ZIPCODE, value);
             startActivity(intent);
         } else {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);

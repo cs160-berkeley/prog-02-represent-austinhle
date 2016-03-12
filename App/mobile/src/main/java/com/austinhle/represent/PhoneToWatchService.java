@@ -16,13 +16,11 @@ import com.google.android.gms.wearable.Wearable;
  * Created by austinhle on 3/1/16.
  */
 public class PhoneToWatchService extends Service {
-
     private GoogleApiClient mApiClient;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        //initialize the googleAPIClient for message passing
         mApiClient = new GoogleApiClient.Builder( this )
                 .addApi( Wearable.API )
                 .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
@@ -45,22 +43,26 @@ public class PhoneToWatchService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // Which cat do we want to feed? Grab this info from INTENT
-        // which was passed over when we called startService
-        Bundle extras = intent.getExtras();
-        final String zipcode = extras.getString(MainActivity.ZIPCODE);
-        Log.d("T", "Retrieved ZIPCODE = " + zipcode + "\n");
+        if (intent != null) {
+            Bundle extras = intent.getExtras();
+            final String data = extras.getString(CongressionalActivity.LEGISLATORS);
+            final double obama = extras.getDouble(CongressionalActivity.OBAMA);
+            final double romney = extras.getDouble(CongressionalActivity.ROMNEY);
+            final String county = extras.getString(CongressionalActivity.COUNTY);
+            final String state = extras.getString(CongressionalActivity.STATE);
 
-        // Send the message with the cat name
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //first, connect to the apiclient
-                mApiClient.connect();
-                //now that you're connected, send a massage with the cat name
-                sendMessage("/zipcode", zipcode);
-            }
-        }).start();
+            final String totalData = county + "|" + state + "|" + obama + "|" + romney + "|" + data;
+
+            Log.d("PhoneToWatchService", "Sending data = " + totalData);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    mApiClient.connect();
+                    sendMessage("", totalData);
+                }
+            }).start();
+        }
 
         return START_STICKY;
     }

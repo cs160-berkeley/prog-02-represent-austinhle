@@ -36,7 +36,7 @@
                     android:weightSum="1">
 
                     <ImageView
-                        android:id="@+id/cImage1"
+                        android:id="@+id/cImage"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".4"
@@ -47,7 +47,7 @@
                         android:textColor="@color/black" />
 
                     <LinearLayout
-                        android:id="@+id/cContent1"
+                        android:id="@+id/cContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight=".6"
@@ -55,35 +55,31 @@
                         android:layout_margin="5dp">
 
                         <TextView
-                            android:id="@+id/cName1"
+                            android:id="@+id/cName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/name1"
                             android:textSize="20dp"
                             android:textColor="@color/black" />
 
                         <TextView
-                            android:id="@+id/cPosition1"
+                            android:id="@+id/cPosition"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/sen"
                             android:textSize="16dp"
                             android:textColor="@color/black" />
 
                         <TextView
-                            android:id="@+id/cParty1"
+                            android:id="@+id/cParty"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/democrat"
                             android:textSize="16dp"
                             android:textColor="@color/democrat" />
 
                         <TextView
-                            android:id="@+id/term"
+                            android:id="@+id/cTerm"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="75dp"
-                            android:text="@string/term"
                             android:textSize="16dp"
                             android:textColor="@color/black" />
                     </LinearLayout>
@@ -119,27 +115,40 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
-                            android:text="Select Committee on Ethics"
                             android:textSize="12dp"
-                            android:textColor="@color/democrat" />
+                            android:textColor="@color/democrat"
+                            android:ellipsize="end"
+                            android:singleLine="true"/>
 
                         <TextView
                             android:id="@+id/c2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
-                            android:text="Committee on Environment and Public Works"
                             android:textSize="12dp"
-                            android:textColor="@color/democrat" />
+                            android:textColor="@color/democrat"
+                            android:ellipsize="end"
+                            android:singleLine="true"/>
 
                         <TextView
                             android:id="@+id/c3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
-                            android:text="Committee on Foreign Relations"
                             android:textSize="12dp"
-                            android:textColor="@color/democrat" />
+                            android:textColor="@color/democrat"
+                            android:ellipsize="end"
+                            android:singleLine="true"/>
+
+                        <TextView
+                            android:id="@+id/c4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/democrat"
+                            android:ellipsize="end"
+                            android:singleLine="true"/>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -174,72 +183,10 @@
                             android:layout_height="wrap_content">
 
                             <LinearLayout
-                                android:id="@+id/bills_list"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/b1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="10dp"
-                                    android:text="Female Veteran Prevention Suicide Act"
-                                    android:textSize="12dp"
-                                    android:textColor="@color/democrat" />
-
-                                <TextView
-                                    android:id="@+id/b2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="10dp"
-                                    android:text="Tule Lake National Historic Site Establish..."
-                                    android:textSize="12dp"
-                                    android:textColor="@color/democrat" />
-
-                                <TextView
-                                    android:id="@+id/b3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="10dp"
-                                    android:text="End of Suffering Act"
-                                    android:textSize="12dp"
-                                    android:textColor="@color/democrat" />
-
-                                <TextView
-                                    android:id="@+id/b4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="10dp"
-                                    android:text="SAFE DRONE Act"
-                                    android:textSize="12dp"
-                                    android:textColor="@color/democrat" />
-
-                                <TextView
-                                    android:id="@+id/b5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="10dp"
-                                    android:text="West Coast Ocean Protection Act"
-                                    android:textSize="12dp"
-                                    android:textColor="@color/democrat" />
-
-                                <TextView
-                                    android:id="@+id/b6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="10dp"
-                                    android:text="Pell Grant Restoration Act"
-                                    android:textSize="12dp"
-                                    android:textColor="@color/democrat" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
                                 android:id="@+id/dates_list"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentStart="true"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -247,8 +194,6 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingStart="3dp"
-                                    android:paddingEnd="3dp"
-                                    android:text="02/03/16"
                                     android:textSize="12dp"
                                     android:textColor="@color/black" />
 
@@ -257,8 +202,6 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingStart="3dp"
-                                    android:paddingEnd="3dp"
-                                    android:text="12/17/15"
                                     android:textSize="12dp"
                                     android:textColor="@color/black" />
 
@@ -267,8 +210,6 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingStart="3dp"
-                                    android:paddingEnd="3dp"
-                                    android:text="10/22/15"
                                     android:textSize="12dp"
                                     android:textColor="@color/black" />
 
@@ -277,8 +218,6 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingStart="3dp"
-                                    android:paddingEnd="3dp"
-                                    android:text="10/07/15"
                                     android:textSize="12dp"
                                     android:textColor="@color/black" />
 
@@ -287,8 +226,6 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingStart="3dp"
-                                    android:paddingEnd="3dp"
-                                    android:text="10/07/15"
                                     android:textSize="12dp"
                                     android:textColor="@color/black" />
 
@@ -297,11 +234,80 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingStart="3dp"
-                                    android:paddingEnd="3dp"
-                                    android:text="09/16/15"
                                     android:textSize="12dp"
                                     android:textColor="@color/black" />
                             </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/bills_list"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_toEndOf="@id/dates_list"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/b1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="5dp"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/democrat"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"/>
+
+                                <TextView
+                                    android:id="@+id/b2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="5dp"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/democrat"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"/>
+
+                                <TextView
+                                    android:id="@+id/b3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="5dp"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/democrat"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"/>
+
+                                <TextView
+                                    android:id="@+id/b4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="5dp"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/democrat"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"/>
+
+                                <TextView
+                                    android:id="@+id/b5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="5dp"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/democrat"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"/>
+
+                                <TextView
+                                    android:id="@+id/b6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="5dp"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/democrat"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"/>
+
+                            </LinearLayout>
+
+
                         </RelativeLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>

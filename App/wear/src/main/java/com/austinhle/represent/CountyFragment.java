@@ -26,11 +26,11 @@ public class CountyFragment extends CardFragment {
         final TextView county = (TextView) v.findViewById(R.id.county);
         county.setText(bundle.getString("county"));
 
-        final TextView cand1 = (TextView) v.findViewById(R.id.cand1);
-        cand1.setText(bundle.getString("cand1"));
+        final TextView cand1 = (TextView) v.findViewById(R.id.obama);
+        cand1.setText(bundle.getString("obama"));
 
-        final TextView cand2 = (TextView) v.findViewById(R.id.cand2);
-        cand2.setText(bundle.getString("cand2"));
+        final TextView cand2 = (TextView) v.findViewById(R.id.romney);
+        cand2.setText(bundle.getString("romney"));
 
         return v;
     }

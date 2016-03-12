@@ -13,92 +13,99 @@ import android.support.wearable.view.GridPagerAdapter;
 import android.util.Log;
 import android.view.Gravity;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by austinhle on 3/2/16.
  */
 public class MyGridPagerAdapter extends FragmentGridPagerAdapter {
     private final Context mContext;
-    private List mRows;
-    private String zipcode;
+    private String data;
 
-    public MyGridPagerAdapter(Context ctx, FragmentManager fm, String zipcode) {
+    private static String county;
+    private static String state;
+    private static double obamaVote;
+    private static double romneyVote;
+
+    private List<SimplePerson> legislators = new ArrayList<SimplePerson>();
+
+    public MyGridPagerAdapter(Context ctx, FragmentManager fm, String data) {
         super(fm);
         mContext = ctx;
-        this.zipcode = zipcode;
-    }
+        this.data = data;
 
-    static final int[] BG_IMAGES = new int[] {R.drawable.boxer, R.drawable.feinstein, R.drawable.lamalfa};
+        Log.d("MyGridPagerAdapter", "Data: " + data);
 
-    // A simple container for static data in each page
-    private static class Page {
-        // static resources
-        int titleRes;
-        int textRes;
-        int iconRes;
-
-        public Page () {
-
-        }
-
-        public Page(int title, int text, int icon) {
-            titleRes = title;
-            textRes = text;
-            iconRes = icon;
+        if (data != null) {
+            populateInstanceVariables();
         }
     }
 
-    private final Page[][] PAGES = {
-            {new Page(R.string.name1, R.string.sen, R.drawable.ic_info_outline_white_24dp),
-             new Page(R.string.name2, R.string.sen, R.drawable.ic_info_outline_white_24dp),
-             new Page(R.string.name3, R.string.rep, R.drawable.ic_info_outline_white_24dp)},
-            {new Page()}
-    };
+    private void populateInstanceVariables() {
+        StringTokenizer st = new StringTokenizer(data, "|");
+
+        String mCounty = st.nextToken();
+        String mState = st.nextToken();
+        Double mObamaVote = Double.parseDouble(st.nextToken());
+        Double mRomneyVote = Double.parseDouble(st.nextToken());
+
+        if (mCounty != null) {
+            county = mCounty;
+        }
+        if (mState != null) {
+            state = mState;
+        }
+        if (mObamaVote != 0.0) {
+            obamaVote = mObamaVote;
+        }
+        if (mRomneyVote != 0.0) {
+            romneyVote = mRomneyVote;
+        }
+
+        while (st.hasMoreElements()) {
+            SimplePerson sp = new SimplePerson();
+            sp.name = st.nextToken();
+            if (sp.name == null || sp.name.equalsIgnoreCase("null"))
+                return;
+
+            sp.party = st.nextToken();
+            if (sp.party == null || sp.party.equalsIgnoreCase("null"))
+                return;
+
+            sp.title = st.nextToken();
+            if (sp.title == null || sp.title.equalsIgnoreCase("null"))
+                return;
+
+            Log.d("MyGridPagerAdapter", "Got: " + sp.name);
+            legislators.add(sp);
+        }
+    }
 
     // Obtain the UI fragment at the specified position
     @Override
     public Fragment getFragment(int row, int col) {
         Bundle bundle = new Bundle();
 
-        Log.d("T", "Inside getFragment(). Zipcode is " + zipcode);
-
-        if (row == 1) {
-            if (zipcode != null && zipcode.equals("95914")) {
-                bundle.putString("county", "Butte County, California");
-                bundle.putString("cand1", "B. Obama 46.4%");
-                bundle.putString("cand2", "M. Romney 18.4%");
-            } else {
-                bundle.putString("county", "Alameda County, California");
-                bundle.putString("cand1", "B. Obama 78.7%");
-                bundle.putString("cand2", "M. Romney 18.4%");
-            }
+        if (col == 0 && row == 0) { // Home screen for watch.
+            CardFragment fragment = new HomeFragment();
+            fragment.setCardGravity(Gravity.BOTTOM);
+            fragment.setExpansionEnabled(true);
+            fragment.setExpansionDirection(CardFragment.EXPAND_DOWN);
+            fragment.setExpansionFactor(3.0f);
+            return fragment;
         }
 
-        switch (col) {
-            case 0:
-                bundle.putString("name", "Barbara Boxer");
-                bundle.putString("party", "Democrat");
-                bundle.putString("position", "Senator");
-                break;
-            case 1:
-                bundle.putString("name", "Dianne Feinstein");
-                bundle.putString("party", "Democrat");
-                bundle.putString("position", "Senator");
-                break;
-            case 2:
-                if (zipcode != null && zipcode.equals("95914")) {
-                    bundle.putString("name", "Doug Lamalfa");
-                    bundle.putString("party", "Republican");
-                    bundle.putString("position", "Representative");
-                    break;
-                } else {
-                    bundle.putString("name", "Barbara Lee");
-                    bundle.putString("party", "Democrat");
-                    bundle.putString("position", "Representative");
-                    break;
-                }
-
+        if (row == 1) { // Show county vote data from 2012 elections.
+            bundle.putString("county", county + ", " + state);
+            bundle.putString("obama", "B. Obama " + obamaVote + "%");
+            bundle.putString("romney", "M. Romney " + romneyVote + "%");
+        } else { // Row 0 but col != 0
+            SimplePerson sp = legislators.get(col - 1);
+            bundle.putString("name", sp.name);
+            bundle.putString("party", sp.party);
+            bundle.putString("title", sp.title);
         }
 
         CardFragment fragment;
@@ -123,12 +130,20 @@ public class MyGridPagerAdapter extends FragmentGridPagerAdapter {
     // Obtain the number of pages (vertical)
     @Override
     public int getRowCount() {
-        return PAGES.length;
+        if (legislators.isEmpty()) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
     // Obtain the number of pages (horizontal)
     @Override
     public int getColumnCount(int rowNum) {
-        return PAGES[rowNum].length;
+        if (legislators.isEmpty()) {
+            return 1;
+        } else {
+            return legislators.size() + 1;
+        }
     }
 }

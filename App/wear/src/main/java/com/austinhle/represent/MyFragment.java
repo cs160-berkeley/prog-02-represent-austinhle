@@ -29,35 +29,41 @@ public class MyFragment extends CardFragment {
         final TextView partyField = (TextView) v.findViewById(R.id.party);
         String party = bundle.getString("party");
         partyField.setText(party);
-        if (party.equals("Republican")) {
+        if (party.equalsIgnoreCase(SimplePerson.REPUBLICAN)) {
             partyField.setTextColor(getResources().getColor(R.color.republican));
-        } else {
+        } else if (party.equalsIgnoreCase(SimplePerson.DEMOCRAT)) {
             partyField.setTextColor(getResources().getColor(R.color.democrat));
+        } else {
+            partyField.setTextColor(getResources().getColor(R.color.independent));
         }
 
         final TextView nameField = (TextView) v.findViewById(R.id.name);
         nameField.setText(bundle.getString("name"));
-        if (party.equals("Republican")) {
+        if (party.equalsIgnoreCase(SimplePerson.REPUBLICAN)) {
             nameField.setTextColor(getResources().getColor(R.color.republican));
-        } else {
+        } else if (party.equalsIgnoreCase(SimplePerson.DEMOCRAT)){
             nameField.setTextColor(getResources().getColor(R.color.democrat));
+        } else {
+            nameField.setTextColor(getResources().getColor(R.color.independent));
         }
 
-        final TextView positionField = (TextView) v.findViewById(R.id.position);
-        positionField.setText(bundle.getString("position"));
+        final TextView titleField = (TextView) v.findViewById(R.id.title);
+        titleField.setText(bundle.getString("title"));
 
         final Button infoButton = (Button) v.findViewById(R.id.more_info);
-        if (party.equals("Republican")) {
+        if (party.equalsIgnoreCase(SimplePerson.REPUBLICAN)) {
             infoButton.setBackgroundResource(R.color.republican);
-        } else {
+        } else if (party.equalsIgnoreCase(SimplePerson.DEMOCRAT)) {
             infoButton.setBackgroundResource(R.color.democrat);
+        } else {
+            infoButton.setBackgroundResource(R.color.independent);
         }
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent(getActivity(), WatchToPhoneService.class);
                 sendIntent.putExtra(NAME, nameField.getText());
-                Log.d("T", "Sending name: " + nameField.getText() + "\n");
+                Log.d("MyFragment", "Sending name to phone: " + nameField.getText() + "\n");
                 getActivity().startService(sendIntent);
             }
         });
